@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Langar', cursive;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  margin: 10px auto;
+  padding: 0.5rem;
+  border-radius: 7px;
+  text-transform: uppercase;
+  background: rebeccapurple;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+nav {
+  /* background-color: rebeccapurple; */
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 0.3rem 3rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*main content*/
+.main-content__wrapper {
+  background: url(./assets/img/wall0.jpg) no-repeat center center/cover;
+  padding: 3rem 1rem;
+  height: 100vh;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.main-content__menu ul {
+  list-style: none;
+  margin-top: 2rem;
+  padding: 2rem;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+  width: 380px;
+  height: 400px;
+  border-radius: 7px;
+  color: #fff;
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-content__menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+.main-content__menu a:hover {
+  opacity: 0.8;
+}
+.main-content__menu h2 {
+  color: #fff;
+  text-align: center;
+}
+
+/*card*/
+
+.card {
+  width: 300px;
+  height: 180px;
+  border-radius: 7px;
+  padding: 1.5rem;
+  text-align: center;
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+}
+.card h3 {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/*Food screen*/
+
+.food-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+/*slider*/
+.main-content__slider {
+  width: 800px;
+  height: 600px;
+  text-align: center;
+  border-radius: 7px;
+}
+.main-content__slider h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.slide-box {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  border-radius: 7px;
+}
+
+.slide {
+  width: 100%;
+  width: 800px;
+  height: 400px;
+  border-radius: 7px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 7px;
+}
+.slide-box h3 {
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.6rem;
+}
+/*footer*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  background: url(./assets/img/wall2.jfif) repeat-x;
+  color: #fff;
+}
