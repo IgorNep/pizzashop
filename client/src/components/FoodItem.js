@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from '../actions/productsAction';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItemToCart, removeItemFromCart } from '../actions/cartActions';
 
 const FoodItem = ({ product }) => {
   const dispatch = useDispatch();
   const [qty, setQty] = useState(0);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const removeItemHadler = () => {
+    if (qty > 0) {
+      setQty(qty - 1);
+      dispatch(removeItemFromCart(product));
+    }
   };
-
-  useEffect(() => {
-    dispatch(addItemToCart());
-  }, [dispatch, qty]);
+  const addItemHandler = () => {
+    setQty(qty + 1);
+    dispatch(addItemToCart(product));
+  };
   return (
     <div className="card">
       <h3 style={{ fontSize: '1.4rem' }}>{product.name} </h3>
 
-      <form onSubmit={submitHandler} style={{ marginTop: '15px' }}>
+      <form style={{ marginTop: '15px' }}>
         <p>
           <span
             style={{
@@ -32,7 +35,8 @@ const FoodItem = ({ product }) => {
         </p>
         <p style={{ marginTop: '1.4rem' }}>
           <button
-            onClick={() => qty > 0 && setQty(qty - 1)}
+            type="button"
+            onClick={removeItemHadler}
             style={{ width: '2rem', cursor: 'pointer' }}
           >
             -
@@ -50,8 +54,9 @@ const FoodItem = ({ product }) => {
             {qty}
           </span>
           <button
-            onClick={() => setQty(qty + 1)}
+            onClick={addItemHandler}
             style={{ width: '2rem', cursor: 'pointer' }}
+            type="button"
           >
             +
           </button>

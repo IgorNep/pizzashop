@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const CartLink = ({ qty }) => {
+const CartLink = () => {
+  const cartItems = useSelector((state) => state.cartItems);
+  const { items } = cartItems;
+
   return (
     <Link to="/cart">
       {' '}
@@ -19,14 +23,11 @@ const CartLink = ({ qty }) => {
             fontSize: '1rem',
           }}
         >
-          {qty}
+          {items.length}
         </span>
       </div>
     </Link>
   );
 };
 
-CartLink.defaultProps = {
-  qty: 0,
-};
 export default CartLink;
