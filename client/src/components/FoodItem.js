@@ -30,10 +30,10 @@ const FoodItem = ({ product }) => {
               color: '#fff',
             }}
           >
-            {product.price} UAH
+            Price: {product.price} UAH
           </span>
         </p>
-        <p style={{ marginTop: '1.4rem' }}>
+        <p style={{ margin: '1.4rem 0' }}>
           <button
             type="button"
             onClick={removeItemHadler}
@@ -47,7 +47,7 @@ const FoodItem = ({ product }) => {
               background: '#fff',
               padding: '0.3rem 0.6rem',
               borderRadius: '7px',
-              margin: '0 0.4rem',
+              margin: '0 0.4rem ',
               fontSize: '1.2rem',
             }}
           >
@@ -60,6 +60,18 @@ const FoodItem = ({ product }) => {
           >
             +
           </button>
+        </p>
+        <p>
+          <span
+            style={{
+              backgroundColor: 'green',
+              padding: '0.3rem',
+              borderRadius: '7px',
+              color: '#fff',
+            }}
+          >
+            Total: {product.price * qty} UAH
+          </span>
         </p>
       </form>
     </div>

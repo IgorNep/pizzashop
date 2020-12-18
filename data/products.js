@@ -116,7 +116,7 @@ const products = [
     image: '/public/fanta.jpg',
     price: 40,
     category: 'drink',
-    sellCount: 8,
+    sellCount: 0,
   },
   {
     name: 'Sprite',

@@ -27,6 +27,10 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    qty: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestapms: true }
 );

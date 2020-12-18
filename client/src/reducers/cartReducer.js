@@ -7,6 +7,7 @@ import {
 export const cartItemsReducer = (state = { items: [] }, action) => {
   switch (action.type) {
     case ITEM_CART_ADD:
+      action.payload.qty += 1;
       return {
         items: [...state.items, action.payload],
       };

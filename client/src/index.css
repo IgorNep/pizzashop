@@ -156,6 +156,35 @@ nav a {
   left: 0;
   font-size: 1.6rem;
 }
+
+/*cart screen*/
+
+.cart-table {
+  border: '1px solid black';
+  width: 600px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+  border-collapse: collapse;
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+}
+.cart-table thead {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #fff;
+}
+.cart-table th,
+.cart-table td {
+  padding: 0.5rem;
+  padding: '0.5rem';
+}
+.cart-table tr {
+  border-bottom: 1px dotted #fff;
+}
+.cart-table tr:last-child {
+  border-bottom: none;
+  font-size: 1.2rem;
+}
+
 /*footer*/
 
 footer {
