@@ -21,10 +21,7 @@ const CartScreen = () => {
         <div
           style={{
             width: '600px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            alignItems: 'flex-end',
+            textAlign: 'right',
           }}
         >
           <table className="cart-table">
