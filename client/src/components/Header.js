@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
+import CartLink from './CartLink';
 
 const Header = () => {
   return (
@@ -49,10 +50,7 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link to="/cart">
-            {' '}
-            <i className="fa fa-shopping-cart" style={{ color: '#fff' }}></i>
-          </Link>
+          <CartLink />
         </li>
       </ul>
     </nav>

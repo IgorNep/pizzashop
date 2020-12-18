@@ -33,3 +33,11 @@ export const getProductByCategory = (category) => async (dispatch) => {
     dispatch({ type: GET_PRODUCT_BY_CATEGORY_FAIL, payload: error });
   }
 };
+
+export const addItemToCart = (qty) => async (dispatch) => {
+  try {
+    console.log(qty);
+  } catch (error) {
+    console.error('error');
+  }
+};

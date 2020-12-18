@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from '../actions/productsAction';
 
 const FoodItem = ({ product }) => {
+  const dispatch = useDispatch();
   const [qty, setQty] = useState(0);
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    dispatch(addItemToCart());
+  }, [dispatch, qty]);
   return (
     <div className="card">
       <h3 style={{ fontSize: '1.4rem' }}>{product.name} </h3>

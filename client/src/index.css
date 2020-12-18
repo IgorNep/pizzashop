@@ -89,7 +89,7 @@ nav a {
 
 .card {
   width: 300px;
-  height: 180px;
+  /* height: 180px; */
   border-radius: 7px;
   padding: 1.5rem;
   text-align: center;
