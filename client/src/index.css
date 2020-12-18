@@ -48,7 +48,7 @@ nav a {
 .main-content__wrapper {
   background: url(./assets/img/wall0.jpg) no-repeat center center/cover;
   padding: 3rem 1rem;
-  height: 100vh;
+  min-height: 100vh;
 }
 .main-content {
   display: grid;

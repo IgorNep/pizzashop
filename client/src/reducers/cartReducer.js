@@ -7,13 +7,24 @@ import {
 export const cartItemsReducer = (state = { items: [] }, action) => {
   switch (action.type) {
     case ITEM_CART_ADD:
-      action.payload.qty += 1;
       return {
-        items: [...state.items, action.payload],
+        items: state.items.find((item) => item._id === action.payload._id)
+          ? state.items.map(
+              (item) =>
+                (item = item._id === action.payload._id ? action.payload : item)
+            )
+          : [...state.items, action.payload],
       };
     case ITEM_CART_REMOVE:
       return {
-        items: state.items.filter((item) => item._id !== action.payload._id),
+        items: state.items.find(
+          (item) => action.payload.qty > 0 && item._id === action.payload._id
+        )
+          ? state.items.map(
+              (item) =>
+                (item = item._id === action.payload._id ? action.payload : item)
+            )
+          : state.items.filter((item) => item._id !== action.payload._id),
       };
     case ITEM_CART_RESET:
       return {

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 const CartLink = () => {
   const cartItems = useSelector((state) => state.cartItems);
   const { items } = cartItems;
+  const qty = items.reduce((acc, item) => acc + item.qty, 0);
 
   return (
     <Link to="/cart">
@@ -23,7 +24,7 @@ const CartLink = () => {
             fontSize: '1rem',
           }}
         >
-          {items.length}
+          {qty}
         </span>
       </div>
     </Link>

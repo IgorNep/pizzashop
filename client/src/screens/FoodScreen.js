@@ -23,7 +23,7 @@ const FoodScreen = ({ match }) => {
       ) : (
         <div className="food-screen">
           {categoryProducts.map((product) => (
-            <FoodItem product={product} key={product.id} />
+            <FoodItem product={product} key={product._id} />
           ))}
         </div>
       )}

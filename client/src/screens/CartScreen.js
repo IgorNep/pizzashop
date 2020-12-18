@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Loader from '../layout/Loader';
 
 const CartScreen = () => {
-  const dispatch = useDispatch();
-
   const cartItems = useSelector((state) => state.cartItems);
   const { items, loading, error } = cartItems;
 
@@ -30,7 +27,7 @@ const CartScreen = () => {
           </thead>
           <tbody>
             {items.map((item) => (
-              <tr>
+              <tr key={item._id}>
                 <td>{item.name}</td>
                 <td>{item.qty}</td>
                 <td>{item.price} UAH</td>
