@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemToCart, removeItemFromCart } from '../actions/cartActions';
 
-const QtyItemsHandler = ({ product }) => {
+const QtyItemsHandler = ({ product, productQtyHandler }) => {
   const dispatch = useDispatch();
   const [qty, setQty] = useState(0);
 
@@ -14,6 +14,13 @@ const QtyItemsHandler = ({ product }) => {
       items.map((item) => item._id === product._id && setQty(item.qty));
     }
   }, [items, product._id]);
+
+  useEffect(() => {
+    if (productQtyHandler) {
+      productQtyHandler(qty);
+    }
+  }, [qty, productQtyHandler]);
+
   const removeItemHadler = () => {
     if (qty > 0) {
       setQty(qty - 1);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import QtyItemsHandler from '../components/QtyItemsHandler';
 import Loader from '../layout/Loader';
@@ -20,12 +20,7 @@ const CartScreen = () => {
       ) : items.length === 0 ? (
         <h2>Cart Is Empty</h2>
       ) : (
-        <div
-          style={{
-            width: '600px',
-            textAlign: 'right',
-          }}
-        >
+        <div className="cart-table-wrapper">
           <table className="cart-table">
             <thead>
               <tr>

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import pizza from '../assets/img/pizza.jfif';
 import QtyItemsHandler from './QtyItemsHandler';
 
 const FoodItem = ({ product }) => {
+  const [qty, setQty] = useState(0);
+  const productQtyHandler = (qtyData) => {
+    if (qtyData > 0) {
+      setQty(qtyData);
+    }
+  };
   return (
     <div className="card">
       <h3 style={{ fontSize: '1.4rem' }}>{product.name} </h3>
@@ -46,7 +52,10 @@ const FoodItem = ({ product }) => {
         </div>
 
         <p style={{ margin: '1.4rem 0' }}>
-          <QtyItemsHandler product={product} />
+          <QtyItemsHandler
+            product={product}
+            productQtyHandler={productQtyHandler}
+          />
         </p>
         <p>
           <span
@@ -57,7 +66,7 @@ const FoodItem = ({ product }) => {
               color: '#fff',
             }}
           >
-            {/* Total: {product.price * qty} UAH */}
+            Total: {product.price * qty} UAH
           </span>
         </p>
       </form>

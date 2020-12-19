@@ -160,10 +160,12 @@ nav a {
 }
 
 /*cart screen*/
-
+.cart-table-wrapper {
+  text-align: right;
+}
 .cart-table {
   border: '1px solid black';
-  width: 600px;
+  width: 100%;
   padding: 1.5rem;
   text-align: center;
   color: #fff;
@@ -177,7 +179,6 @@ nav a {
 .cart-table th,
 .cart-table td {
   padding: 0.5rem;
-  padding: '0.5rem';
 }
 .cart-table tr {
   border-bottom: 1px dotted #fff;
