@@ -17,4 +17,9 @@ const getProductByCategory = asyncHandler(async (req, res) => {
   }
   res.json(categoryProducts);
 });
-export { getProducts, getProductByCategory };
+
+const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ sellCount: -1 }).limit(5);
+  res.json(products);
+});
+export { getProducts, getProductByCategory, getTopProducts };
