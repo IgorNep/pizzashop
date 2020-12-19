@@ -1,4 +1,8 @@
-import { ITEM_CART_REMOVE, ITEM_CART_ADD } from '../constants/cartConstants';
+import {
+  ITEM_CART_REMOVE,
+  ITEM_CART_ADD,
+  ITEM_CART_FULL_REMOVE,
+} from '../constants/cartConstants';
 
 export const addItemToCart = (product) => async (dispatch) => {
   try {
@@ -17,5 +21,13 @@ export const removeItemFromCart = (product) => async (dispatch) => {
     dispatch({ type: ITEM_CART_REMOVE, payload: product });
   } catch (error) {
     console.error('error');
+  }
+};
+
+export const removeFullItemFromCart = (product) => async (dispatch) => {
+  try {
+    dispatch({ type: ITEM_CART_FULL_REMOVE, payload: product });
+  } catch (error) {
+    console.error('Error');
   }
 };

@@ -1,14 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import QtyItemsHandler from '../components/QtyItemsHandler';
 import Loader from '../layout/Loader';
+import { removeFullItemFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
+  const dispatch = useDispatch();
+
   const cartItems = useSelector((state) => state.cartItems);
   const { items, loading, error } = cartItems;
 
   const placeOrderHandler = () => {
-    alert('Order Placed');
+    alert(
+      `Order Placed. Amount to pay: ${items.reduce(
+        (acc, item) => item.qty * item.price + acc,
+        0
+      )} UAH`
+    );
+  };
+  const removeItemHadler = (itemToRemove) => {
+    dispatch(removeFullItemFromCart(itemToRemove));
   };
 
   return (
@@ -45,6 +56,7 @@ const CartScreen = () => {
                     <i
                       className="fa fa-times"
                       style={{ color: 'red', cursor: 'pointer' }}
+                      onClick={() => removeItemHadler(item)}
                     ></i>
                   </td>
                 </tr>

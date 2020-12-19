@@ -162,6 +162,7 @@ nav a {
 /*cart screen*/
 .cart-table-wrapper {
   text-align: right;
+  width: 100%;
 }
 .cart-table {
   border: '1px solid black';
