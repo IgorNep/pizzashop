@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,8 +7,20 @@ import pizzaImg2 from '../assets/img/pizza2.jfif';
 import pizzaImg3 from '../assets/img/pizza3.jfif';
 import pizzaImg4 from '../assets/img/pizza4.jfif';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getTopProductsList } from '../actions/productsAction';
+import Loader from '../layout/Loader';
 
 const SliderComponent = () => {
+  const dispatch = useDispatch();
+
+  const topProductsList = useSelector((state) => state.topProductsList);
+  const { error, loading, topProducts } = topProductsList;
+
+  useEffect(() => {
+    dispatch(getTopProductsList());
+  }, [dispatch]);
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -105,53 +117,29 @@ const SliderComponent = () => {
     ],
   };
   return (
-    <Slider {...settings}>
-      <div>
-        <div className="slide-box">
-          <Link to="/deal/pizza">
-            <h3>1</h3>
-            <img src={pizzaImg} alt="pizza" className="slide" />
-            <div className="overlay"></div>
-          </Link>
-        </div>
-      </div>
-      <div>
-        <div className="slide-box">
-          <Link to="/deal/pasta">
-            <h3>2</h3>
-            <img src={pizzaImg2} alt="pizza" className="slide" />
-            <div className="overlay"></div>
-          </Link>
-        </div>
-      </div>
-      <div>
-        <div className="slide-box">
-          <Link to="/deal/salad">
-            <h3>3</h3>
-            <img src={pizzaImg3} alt="pizza" className="slide" />
-            <div className="overlay"></div>
-          </Link>
-        </div>
-      </div>
-      <div>
-        <div className="slide-box">
-          <Link to="/deal/pizza">
-            <h3>4</h3>
-            <img src={pizzaImg4} alt="pizza" className="slide" />
-            <div className="overlay"></div>
-          </Link>
-        </div>
-      </div>
-      <div>
-        <div className="slide-box">
-          <Link to="/deal/pasta">
-            <h3>5</h3>
-            <img src={pizzaImg3} alt="pizza" className="slide" />
-            <div className="overlay"></div>
-          </Link>
-        </div>
-      </div>
-    </Slider>
+    <>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <h3>Error</h3>
+      ) : (
+        <Slider {...settings}>
+          {topProducts.map((product) => (
+            <div>
+              <div className="slide-box">
+                <Link to="/deal/pizza">
+                  <h3>
+                    {product.name} {product.price} UAH
+                  </h3>
+                  <img src={pizzaImg} alt="pizza" className="slide" />
+                  <div className="overlay"></div>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      )}
+    </>
   );
 };
 
