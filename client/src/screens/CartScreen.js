@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import QtyItemsHandler from '../components/QtyItemsHandler';
 import Loader from '../layout/Loader';
 
 const CartScreen = () => {
@@ -9,6 +10,7 @@ const CartScreen = () => {
   const placeOrderHandler = () => {
     alert('Order Placed');
   };
+
   return (
     <>
       {loading ? (
@@ -38,7 +40,10 @@ const CartScreen = () => {
               {items.map((item) => (
                 <tr key={item._id}>
                   <td>{item.name}</td>
-                  <td>{item.qty}</td>
+
+                  <td>
+                    <QtyItemsHandler product={item} />
+                  </td>
                   <td>{item.price} UAH</td>
                   <td>{item.qty * item.price} UAH</td>
                   <td>
