@@ -45,6 +45,23 @@ nav a {
   color: #fff;
   text-decoration: none;
 }
+.nav-menu a {
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.nav-menu a:hover {
+  border-bottom: 2px solid red;
+  transform: rotate(10deg);
+}
+.nav-menu a:hover i {
+  color: green;
+}
+.nav-special-links a:hover i {
+  transition: all 0.5s ease;
+  color: green;
+}
 
 /*main content*/
 .main-content__wrapper {

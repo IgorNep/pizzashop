@@ -29,7 +29,13 @@ const CartScreen = () => {
       ) : error ? (
         <h3>error</h3>
       ) : items.length === 0 ? (
-        <h2>Cart Is Empty</h2>
+        <div className="main-content__menu">
+          <h2>
+            <ul style={{ margin: '0 auto' }}>
+              <i className="fa fa-utensils fa-2x"></i> Cart Is Empty
+            </ul>
+          </h2>
+        </div>
       ) : (
         <div className="cart-table-wrapper">
           <table className="cart-table">

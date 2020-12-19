@@ -18,6 +18,7 @@ const Header = () => {
           width: '300px',
           color: '#fff',
         }}
+        className="nav-menu"
       >
         <li>
           <Link to="/menu/pizza">
@@ -43,7 +44,7 @@ const Header = () => {
           </Link>
         </li>
       </ul>
-      <ul style={{ width: '60px' }}>
+      <ul style={{ width: '60px' }} className="nav-special-links">
         <li>
           <Link to="/profile">
             <i className="fa fa-user"></i>
