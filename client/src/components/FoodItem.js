@@ -8,6 +8,9 @@ const FoodItem = ({ product }) => {
     if (qtyData > 0) {
       setQty(qtyData);
     }
+    if (qtyData === 0) {
+      setQty(0);
+    }
   };
   return (
     <div className="card">
@@ -44,6 +47,7 @@ const FoodItem = ({ product }) => {
                 position: 'absolute',
                 top: '0',
                 right: '15px',
+                border: '2px solid #000',
               }}
             >
               {product.price} UAH
@@ -60,13 +64,26 @@ const FoodItem = ({ product }) => {
         <p>
           <span
             style={{
-              backgroundColor: 'green',
-              padding: '0.3rem',
+              backgroundColor: 'red',
+              padding: '0.3rem 0 0.3rem 0.3rem',
               borderRadius: '7px',
               color: '#fff',
+              border: '2px solid #000',
             }}
           >
-            Total: {product.price * qty} UAH
+            Total:{' '}
+            <span
+              style={{
+                background: '#fff',
+                color: '#000',
+                padding: '0.3rem',
+                borderTopRightRadius: '7px',
+                borderBottomRightRadius: '7px',
+                border: '2px solid #000',
+              }}
+            >
+              {product.price * qty} UAH
+            </span>{' '}
           </span>
         </p>
       </form>

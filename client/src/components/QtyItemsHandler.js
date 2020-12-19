@@ -26,6 +26,8 @@ const QtyItemsHandler = ({ product, productQtyHandler }) => {
       setQty(qty - 1);
       product.qty = qty;
       dispatch(removeItemFromCart(product));
+    } else {
+      productQtyHandler(0);
     }
   };
   const addItemHandler = () => {
