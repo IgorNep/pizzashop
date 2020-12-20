@@ -74,6 +74,9 @@ const registerUser = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
+  } else {
+    res.status(404);
+    throw new Error('User Not Found');
   }
 });
 export { getUsers, getUserById, registerUser, authUser, getUserProfile };

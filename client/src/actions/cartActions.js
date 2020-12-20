@@ -10,10 +10,10 @@ export const addItemToCart = (product) => async (dispatch, getState) => {
     dispatch({ type: ITEM_CART_ADD, payload: product });
     localStorage.setItem(
       'cartItems',
-      JSON.stringify(getState().cartItems.items)
+      JSON.stringify(getState().cart.cartItems)
     );
   } catch (error) {
-    console.error('error ');
+    console.error(('error 123', error));
   }
 };
 
@@ -25,7 +25,7 @@ export const removeItemFromCart = (product) => async (dispatch, getState) => {
     dispatch({ type: ITEM_CART_REMOVE, payload: product });
     localStorage.setItem(
       'cartItems',
-      JSON.stringify(getState().cartItems.items)
+      JSON.stringify(getState().cart.cartItems)
     );
   } catch (error) {
     console.error('error');
@@ -40,7 +40,7 @@ export const removeFullItemFromCart = (product) => async (
     dispatch({ type: ITEM_CART_FULL_REMOVE, payload: product });
     localStorage.setItem(
       'cartItems',
-      JSON.stringify(getState().cartItems.items)
+      JSON.stringify(getState().cart.cartItems)
     );
   } catch (error) {
     console.error('Error');

@@ -125,7 +125,7 @@ const SliderComponent = () => {
       ) : (
         <Slider {...settings}>
           {topProducts.map((product) => (
-            <div>
+            <div key={product._id}>
               <div className="slide-box">
                 <Link to="/deal/pizza">
                   <h3>
