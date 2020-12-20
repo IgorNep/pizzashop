@@ -14,12 +14,7 @@ const CartScreen = ({ history, location }) => {
   const { cartItems, loading, error } = cart;
 
   const placeOrderHandler = () => {
-    alert(
-      `Order Placed. Amount to pay: ${cartItems.reduce(
-        (acc, item) => item.qty * item.price + acc,
-        0
-      )} UAH`
-    );
+    history.push('/login/?redirect=shipping');
   };
   const removeItemHadler = (itemToRemove) => {
     dispatch(removeFullItemFromCart(itemToRemove));
@@ -94,6 +89,7 @@ const CartScreen = ({ history, location }) => {
                 : history.push('/')
             }
             className="btn btn-light"
+            style={{ marginRight: '0.5rem' }}
           >
             Go Back
           </button>

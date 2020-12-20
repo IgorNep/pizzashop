@@ -21,11 +21,23 @@ const FoodScreen = ({ match }) => {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <div className="food-screen">
-          {categoryProducts.map((product) => (
-            <FoodItem product={product} key={product._id} />
-          ))}
-        </div>
+        <>
+          <h2
+            style={{
+              color: '#fff',
+              textAlign: 'center',
+              marginBottom: '2rem',
+              textTransform: 'uppercase',
+            }}
+          >
+            {match.params.category}s
+          </h2>
+          <div className="food-screen">
+            {categoryProducts.map((product) => (
+              <FoodItem product={product} key={product._id} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );
