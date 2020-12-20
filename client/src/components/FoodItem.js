@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import pizza from '../assets/img/pizza.jfif';
 import QtyItemsHandler from './QtyItemsHandler';
+import { Link } from 'react-router-dom';
 
 const FoodItem = ({ product }) => {
   const [qty, setQty] = useState(0);
@@ -52,6 +53,17 @@ const FoodItem = ({ product }) => {
             >
               {product.price} UAH
             </span>
+            <Link
+              to="/cart"
+              style={{
+                color: '#fff',
+                position: 'absolute',
+                bottom: '-100px',
+                right: '0',
+              }}
+            >
+              <i className="fa fa-shopping-cart"></i>
+            </Link>
           </p>
         </div>
 
