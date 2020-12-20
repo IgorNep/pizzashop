@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import QtyItemsHandler from '../components/QtyItemsHandler';
 import Loader from '../layout/Loader';
 import { removeFullItemFromCart } from '../actions/cartActions';
+import { Link } from 'react-router-dom';
 
 const CartScreen = () => {
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cartItems);
-  const { items, loading, error } = cartItems;
+  const cart = useSelector((state) => state.cart);
+  const { cartItems, loading, error } = cart;
 
   const placeOrderHandler = () => {
     alert(
-      `Order Placed. Amount to pay: ${items.reduce(
+      `Order Placed. Amount to pay: ${cartItems.reduce(
         (acc, item) => item.qty * item.price + acc,
         0
       )} UAH`
@@ -28,11 +29,14 @@ const CartScreen = () => {
         <Loader />
       ) : error ? (
         <h3>error</h3>
-      ) : items.length === 0 ? (
+      ) : cartItems.length === 0 ? (
         <div className="main-content__menu">
           <h2>
             <ul style={{ margin: '0 auto' }}>
               <i className="fa fa-utensils fa-2x"></i> Cart Is Empty
+              <Link to="/">
+                <i className="fa fa-arrow-left"></i> Go Back
+              </Link>
             </ul>
           </h2>
         </div>
@@ -49,7 +53,7 @@ const CartScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => (
+              {cartItems.map((item) => (
                 <tr key={item._id}>
                   <td>{item.name}</td>
 
@@ -72,7 +76,10 @@ const CartScreen = () => {
                 <td></td>
                 <td>Average Amount: </td>
                 <td>
-                  {items.reduce((acc, item) => item.qty * item.price + acc, 0)}{' '}
+                  {cartItems.reduce(
+                    (acc, item) => item.qty * item.price + acc,
+                    0
+                  )}{' '}
                   UAH
                 </td>
               </tr>

@@ -6,14 +6,14 @@ const QtyItemsHandler = ({ product, productQtyHandler }) => {
   const dispatch = useDispatch();
   const [qty, setQty] = useState(0);
 
-  const cartItems = useSelector((state) => state.cartItems);
-  const { items } = cartItems;
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   useEffect(() => {
-    if (items.length > 0) {
-      items.map((item) => item._id === product._id && setQty(item.qty));
+    if (cartItems.length > 0) {
+      cartItems.map((item) => item._id === product._id && setQty(item.qty));
     }
-  }, [items, product._id]);
+  }, [cartItems, product._id]);
 
   useEffect(() => {
     if (productQtyHandler) {

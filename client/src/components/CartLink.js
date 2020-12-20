@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const CartLink = () => {
-  const cartItems = useSelector((state) => state.cartItems);
-  const { items } = cartItems;
-  const qty = items.reduce((acc, item) => acc + item.qty, 0);
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+  const qty = cartItems.reduce((acc, item) => acc + item.qty, 0);
 
   return (
     <Link to="/cart">
