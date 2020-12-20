@@ -5,8 +5,10 @@ import Loader from '../layout/Loader';
 import { removeFullItemFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 
-const CartScreen = () => {
+const CartScreen = ({ history, location }) => {
   const dispatch = useDispatch();
+
+  const pageGoBack = location.search ? location.search.split('=')[1] : null;
 
   const cart = useSelector((state) => state.cart);
   const { cartItems, loading, error } = cart;
@@ -34,7 +36,7 @@ const CartScreen = () => {
           <h2>
             <ul style={{ margin: '0 auto' }}>
               <i className="fa fa-utensils fa-2x"></i> Cart Is Empty
-              <Link to="/">
+              <Link to={pageGoBack ? `/menu/${pageGoBack}` : '/'}>
                 <i className="fa fa-arrow-left"></i> Go Back
               </Link>
             </ul>
@@ -85,7 +87,16 @@ const CartScreen = () => {
               </tr>
             </tbody>
           </table>
-          <button>Go Back</button>
+          <button
+            onClick={() =>
+              pageGoBack
+                ? history.push(`/menu/${pageGoBack}`)
+                : history.push('/')
+            }
+            className="btn btn-light"
+          >
+            Go Back
+          </button>
           <button className="btn btn-dark" onClick={placeOrderHandler}>
             Place Order
           </button>

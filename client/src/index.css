@@ -28,6 +28,11 @@ body {
 .btn-dark {
   background: #000;
 }
+.btn-light {
+  color: #000;
+  background: white;
+  border: 1px solid #000;
+}
 nav {
   /* background-color: rebeccapurple; */
   background: url(./assets/img/wall2.jfif) no-repeat center center/cover;

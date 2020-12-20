@@ -53,13 +53,18 @@ const FoodItem = ({ product }) => {
             >
               {product.price} UAH
             </span>
+
             <Link
-              to="/cart"
+              to={`/cart?page=${product.category}`}
               style={{
-                color: '#fff',
+                color: '#000',
                 position: 'absolute',
                 bottom: '-100px',
                 right: '0',
+                background: '#fff',
+                borderRadius: '50%',
+                padding: '0.3rem 0.5rem',
+                border: '2px solid #000',
               }}
             >
               <i className="fa fa-shopping-cart"></i>
