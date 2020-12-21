@@ -7,10 +7,11 @@ import {
   topProductsListReducer,
 } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducer';
-import { userLoginReducer } from './reducers/userReducers';
+import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
   getProducts: getProductsReducer,
   getByCategory: getProductByCategoryReducer,
   topProductsList: topProductsListReducer,

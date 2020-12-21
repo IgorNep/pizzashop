@@ -39,10 +39,10 @@ body {
 }
 .btn-link {
   color: #fff;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .btn-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /*Alert*/
@@ -112,6 +112,8 @@ nav a {
   justify-content: center;
   background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
   display: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .user-info-link_menu li:first-child a:hover {
   color: green;

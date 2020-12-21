@@ -5,7 +5,7 @@ import CartLink from './CartLink';
 import { logout } from '../actions/userActions';
 import { useSelector, useDispatch } from 'react-redux';
 
-const Header = () => {
+const Header = ({ history }) => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
