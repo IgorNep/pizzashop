@@ -45,6 +45,18 @@ body {
   text-decoration: underline;
 }
 
+/*Alert*/
+.alert {
+  color: #000;
+  padding: 0.5rem;
+}
+.alert-danger {
+  background: red;
+}
+
+.alert-success {
+  background: green;
+}
 nav {
   /* background-color: rebeccapurple; */
   background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
