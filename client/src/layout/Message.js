@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Error = ({ type, message }) => {
+const Message = ({ type, message }) => {
   useEffect(() => {
     const error = document.querySelector('.alert');
 
@@ -11,4 +11,4 @@ const Error = ({ type, message }) => {
   return <div className={`alert alert-${type}`}>{message}</div>;
 };
 
-export default Error;
+export default Message;

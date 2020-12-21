@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../layout/Loader';
-import Error from '../layout/Error';
+import Message from '../layout/Message';
 import { login } from '../actions/userActions';
 import FormContainer from '../components/FormContainer';
 import { Link } from 'react-router-dom';
@@ -28,7 +28,7 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h2>Sign In</h2>
-      {error && <Error type="danger" message={error} />}
+      {error && <Message type="danger" message={error} />}
       {loading && <Loader />}
 
       <form onSubmit={submitHandler}>
