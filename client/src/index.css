@@ -37,6 +37,13 @@ body {
   background: white;
   border: 1px solid #000;
 }
+.btn-link {
+  color: #fff;
+  text-decoration: none;
+}
+.btn-link:hover {
+  text-decoration: underline;
+}
 
 nav {
   /* background-color: rebeccapurple; */
@@ -214,6 +221,54 @@ nav a {
 .cart-table tr:last-child {
   border-bottom: none;
   font-size: 1.2rem;
+}
+
+/*login form*/
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0.5rem;
+  background: url(./assets/img/wall2.jfif);
+  color: #fff;
+  border-radius: 10px;
+}
+.login-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.form-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+}
+.form-group label {
+  font-size: 1.2rem;
+}
+.login-form input {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #000;
+}
+.login-form input:focus {
+  border: 2px solid red;
+  color: red;
+  font-size: 1.3rem;
+}
+.login-form input::placeholder {
+  color: #000;
+  font-size: 1rem;
 }
 
 /*footer*/
