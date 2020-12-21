@@ -14,7 +14,7 @@ const CartScreen = ({ history, location }) => {
   const { cartItems, loading, error } = cart;
 
   const placeOrderHandler = () => {
-    history.push('/login/?redirect=shipping');
+    history.push('/login?redirect=shipping');
   };
   const removeItemHadler = (itemToRemove) => {
     dispatch(removeFullItemFromCart(itemToRemove));

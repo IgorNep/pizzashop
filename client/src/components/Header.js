@@ -24,7 +24,8 @@ const Header = ({ history }) => {
           display: 'flex',
           listStyle: 'none',
           justifyContent: 'space-between',
-          width: '300px',
+          width: '100%',
+          maxWidth: '500px',
           color: '#fff',
         }}
         className="nav-menu"
@@ -44,6 +45,11 @@ const Header = ({ history }) => {
         <li>
           <Link to="/menu/salad">
             <i className="fa fa-seedling"></i> Salads
+          </Link>
+        </li>
+        <li>
+          <Link to="/menu/desert">
+            <i class="fas fa-ice-cream"></i> Deserts
           </Link>
         </li>
         <li>

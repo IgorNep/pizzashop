@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import pizza from '../assets/img/pizza.jfif';
 import QtyItemsHandler from './QtyItemsHandler';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +25,7 @@ const FoodItem = ({ product }) => {
           }}
         >
           <img
-            src={pizza}
+            src={product.image}
             alt="pizza"
             style={{
               maxWidth: '160px',

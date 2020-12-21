@@ -275,7 +275,7 @@ nav a {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem;
   background: url(./assets/img/wall2.jfif);
   color: #fff;
   border-radius: 10px;
@@ -310,6 +310,39 @@ nav a {
 .login-form input::placeholder {
   color: #000;
   font-size: 1rem;
+}
+
+/*Profile screen*/
+.profile-screen {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  gap: 1rem;
+}
+.profile-screen .login-form {
+  justify-content: start;
+  padding-top: 2rem;
+}
+.profile-screen__orders {
+  width: 100%;
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+  height: 100vh;
+  border-radius: 10px;
+  color: #fff;
+  padding: 2rem;
+}
+.profile-screen__orders h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.profile-table {
+  width: 100%;
+  border: 1px solid #fff;
+  border-collapse: collapse;
+}
+.profile-table td {
+  border: 1px solid #fff;
+  text-align: center;
 }
 
 /*footer*/
