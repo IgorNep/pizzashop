@@ -2,8 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
 import CartLink from './CartLink';
+import { logout } from '../actions/userActions';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
   return (
     <nav>
       <Link to="/" style={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -44,15 +53,29 @@ const Header = () => {
           </Link>
         </li>
       </ul>
-      <ul style={{ width: '60px' }} className="nav-special-links">
-        <li>
-          <Link to="/profile">
-            <i className="fa fa-user"></i>
-          </Link>
-        </li>
+      <ul className="nav-special-links">
         <li>
           <CartLink />
         </li>
+        {userInfo ? (
+          <>
+            <li className="user-info-link">
+              {userInfo.name}{' '}
+              <ul className="user-info-link_menu">
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li onClick={logoutHandler}>Logout</li>
+              </ul>
+            </li>
+          </>
+        ) : (
+          <li>
+            <Link to="/login">
+              <i className="fa fa-user"></i>
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

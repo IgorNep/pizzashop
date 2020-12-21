@@ -87,11 +87,38 @@ nav a {
 .nav-menu a:hover i {
   color: green;
 }
+.nav-special-links li {
+  margin-left: 1.2rem;
+}
 .nav-special-links a:hover i {
   transition: all 0.5s ease;
   color: green;
 }
-
+.user-info-link {
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+.user-info-link:hover .user-info-link_menu {
+  display: flex;
+}
+.user-info-link_menu {
+  position: absolute;
+  top: 1.3rem;
+  padding: 1rem 1rem 1rem 0rem;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(./assets/img/wall2.jfif) no-repeat center center/cover;
+  display: none;
+}
+.user-info-link_menu li:first-child a:hover {
+  color: green;
+}
+.user-info-link_menu li:hover {
+  color: red;
+}
 /*main content*/
 .main-content__wrapper {
   background: url(./assets/img/wall0.jpg) no-repeat center center/cover;
