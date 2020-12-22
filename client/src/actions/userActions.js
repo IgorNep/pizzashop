@@ -12,6 +12,8 @@ import {
   USER_DETAILS_SUCCESS,
   USER_DETAILS_RESET,
   USER_UPDATE_PROFILE_REQUEST,
+  USER_UPDATE_PROFILE_SUCCESS,
+  USER_UPDATE_PROFILE_FAIL,
 } from '../constants/userConstants';
 
 export const login = (email, password) => async (dispatch) => {
@@ -105,7 +107,9 @@ export const userUpdateProfile = (name, email, password) => async (
   try {
     dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
 
-    const { u };
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
     const config = {
       headers: {
@@ -120,12 +124,13 @@ export const userUpdateProfile = (name, email, password) => async (
       config
     );
 
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+    dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+    dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: USER_REGISTER_FAIL,
+      type: USER_UPDATE_PROFILE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
