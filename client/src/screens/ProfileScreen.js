@@ -50,6 +50,7 @@ const ProfileScreen = ({ history }) => {
         <div className="profile-screen">
           <FormContainer>
             <h2>User Profile</h2>
+            {message && <Message type="danger" message={message} />}
             <form onSubmit={submitHandler}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>

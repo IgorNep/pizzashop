@@ -49,7 +49,7 @@ const Header = ({ history }) => {
         </li>
         <li>
           <Link to="/menu/desert">
-            <i class="fas fa-ice-cream"></i> Deserts
+            <i className="fas fa-ice-cream"></i> Deserts
           </Link>
         </li>
         <li>
