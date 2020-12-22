@@ -14,6 +14,7 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
+  USER_UPDATE_PROFILE_RESET,
 } from '../constants/userConstants';
 
 export const login = (email, password) => async (dispatch) => {
@@ -100,7 +101,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     });
   }
 };
-export const userUpdateProfile = (name, email, password) => async (
+export const userProfileUpdate = (name, email, password) => async (
   dispatch,
   getState
 ) => {
@@ -128,6 +129,10 @@ export const userUpdateProfile = (name, email, password) => async (
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
+
+    setTimeout(() => {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET });
+    }, 2000);
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
