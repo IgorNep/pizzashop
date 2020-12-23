@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ProgressSteps from '../components/ProgressSteps';
-
+import { Link } from 'react-router-dom';
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
@@ -32,22 +31,33 @@ const PlaceOrderScreen = ({ history }) => {
             <div className="place-order-screen__items_item">
               <table className="place-order-screen__items_table">
                 <tbody>
-                  {cartItems.map((item) => (
-                    <tr key={item._id}>
+                  {cartItems.length === 0 ? (
+                    <tr>
                       <td>
-                        <img src={item.image} alt="img" />
-                      </td>
-                      <td>
-                        {item.name} ({item.category})
-                      </td>
-
-                      <td>
-                        {item.qty} x {item.price} UAH ={item.qty * item.price}{' '}
-                        UAH
-                      </td>
-                      <td></td>
+                        Your cart Is Empty.{' '}
+                        <Link to="/menu/pizza" style={{ color: '#fff' }}>
+                          Fill It
+                        </Link>
+                      </td>{' '}
                     </tr>
-                  ))}
+                  ) : (
+                    cartItems.map((item) => (
+                      <tr key={item._id}>
+                        <td>
+                          <img src={item.image} alt="img" />
+                        </td>
+                        <td>
+                          {item.name} ({item.category})
+                        </td>
+
+                        <td>
+                          {item.qty} x {item.price} UAH ={item.qty * item.price}{' '}
+                          UAH
+                        </td>
+                        <td></td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
@@ -63,25 +73,43 @@ const PlaceOrderScreen = ({ history }) => {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Items:</td>
-                <td>{totalItemsPay} UAH</td>
-              </tr>
-              <tr>
-                <td>Shipping:</td>
-                <td>{shippingPay} UAH</td>
-              </tr>
-              <tr>
-                <td>
-                  {' '}
-                  <h3>Total:</h3>{' '}
-                </td>
-                <td>{totalPay} UAH</td>
-              </tr>
-            </tbody>
+            {cartItems.length === 0 ? (
+              <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+                No Items{' '}
+                <Link to="/menu/pizza" style={{ color: '#fff' }}>
+                  Fill The Cart
+                </Link>{' '}
+              </p>
+            ) : (
+              <>
+                <tbody>
+                  <tr>
+                    <td>Items:</td>
+                    <td>{totalItemsPay} UAH</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping:</td>
+                    <td>{shippingPay} UAH</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {' '}
+                      <h3>Total:</h3>{' '}
+                    </td>
+                    <td>{totalPay} UAH</td>
+                  </tr>
+                  <tr style={{ borderBottom: 'none' }}>
+                    <td colSpan="2">
+                      {' '}
+                      <button className="btn btn-light d-block">
+                        Pay {totalPay} UAH
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </>
+            )}
           </table>
-          <button className="btn btn-light d-block">Pay</button>
         </div>
       </div>
     </>
