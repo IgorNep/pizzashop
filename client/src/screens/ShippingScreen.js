@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import { saveShippingAddress } from '../actions/cartActions';
 import ProgressSteps from '../components/ProgressSteps';
+import Message from '../layout/Message';
 
 const ShippingScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -16,9 +17,22 @@ const ShippingScreen = ({ history }) => {
     shippingAddress.newPostNumber
   );
   const [country, setCountry] = useState(shippingAddress.country);
+  const [message, setMessage] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (
+      address === '' ||
+      city === '' ||
+      newPostNumber === '' ||
+      country === ''
+    ) {
+      setMessage('Please Enter All Fields');
+      setTimeout(() => {
+        setMessage('');
+      }, 1000);
+      return;
+    }
     dispatch(saveShippingAddress({ address, city, newPostNumber, country }));
     history.push('/payment');
   };
@@ -28,11 +42,13 @@ const ShippingScreen = ({ history }) => {
       <ProgressSteps step1 step2 step3 />
       <FormContainer>
         <h2>Shipping</h2>
+        {message && <Message type="danger" message={message} />}
         <form onSubmit={submitHandler}>
           <div className="form-group">
-            <label htmlFor="name">Address</label>
+            <label htmlFor="address">Address</label>
             <input
               type="text"
+              name="address"
               placeholder="Enter Address"
               id="address"
               value={address}
