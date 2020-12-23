@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 const PlaceOrderScreen = ({ history }) => {
@@ -7,12 +7,14 @@ const PlaceOrderScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, paymentMethod, cartItems } = cart;
 
-  const totalItemsPay = cartItems.reduce(
-    (acc, item) => item.qty * item.price + acc,
-    0
-  );
-  const shippingPay = totalItemsPay >= 250 ? 0 : 70;
-  const totalPay = shippingPay + totalItemsPay;
+  cart.itemsPrice = cartItems
+    .reduce((acc, item) => item.qty * item.price + acc, 0)
+    .toFixed(2);
+  cart.shippingPrice = (cart.itemsPrice >= 250 ? 0 : 70).toFixed(2);
+  cart.totalPrice = (
+    Number(cart.shippingPrice) + Number(cart.itemsPrice)
+  ).toFixed(2);
+
   return (
     <>
       <div className="place-order-screen">
@@ -85,24 +87,24 @@ const PlaceOrderScreen = ({ history }) => {
                 <tbody>
                   <tr>
                     <td>Items:</td>
-                    <td>{totalItemsPay} UAH</td>
+                    <td>{cart.itemsPrice} UAH</td>
                   </tr>
                   <tr>
                     <td>Shipping:</td>
-                    <td>{shippingPay} UAH</td>
+                    <td>{cart.shippingPrice} UAH</td>
                   </tr>
                   <tr>
                     <td>
                       {' '}
                       <h3>Total:</h3>{' '}
                     </td>
-                    <td>{totalPay} UAH</td>
+                    <td>{cart.totalPrice} UAH</td>
                   </tr>
                   <tr style={{ borderBottom: 'none' }}>
                     <td colSpan="2">
                       {' '}
                       <button className="btn btn-light d-block">
-                        Pay {totalPay} UAH
+                        Place Order
                       </button>
                     </td>
                   </tr>

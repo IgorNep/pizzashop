@@ -17,7 +17,7 @@ const ShippingScreen = ({ history }) => {
     shippingAddress.newPostNumber
   );
   const [country, setCountry] = useState(shippingAddress.country);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -29,12 +29,12 @@ const ShippingScreen = ({ history }) => {
     ) {
       setMessage('Please Enter All Fields');
       setTimeout(() => {
-        setMessage('');
+        setMessage(null);
       }, 1000);
-      return;
+    } else {
+      dispatch(saveShippingAddress({ address, city, newPostNumber, country }));
+      history.push('/payment');
     }
-    dispatch(saveShippingAddress({ address, city, newPostNumber, country }));
-    history.push('/payment');
   };
 
   return (
@@ -53,6 +53,7 @@ const ShippingScreen = ({ history }) => {
               id="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
@@ -63,6 +64,7 @@ const ShippingScreen = ({ history }) => {
               id="city"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
@@ -73,6 +75,7 @@ const ShippingScreen = ({ history }) => {
               id="newPostNumber"
               value={newPostNumber}
               onChange={(e) => setNewPostNumber(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
@@ -83,6 +86,7 @@ const ShippingScreen = ({ history }) => {
               id="country"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
+              required
             />
           </div>
           <button type="submit" className="btn btn-light">
