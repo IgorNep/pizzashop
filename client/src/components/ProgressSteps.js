@@ -29,11 +29,13 @@ const ProgressSteps = ({ step1, step2, step3, step4 }) => {
       )}
       <div className="progress__separator"></div>
       {step4 ? (
-        <Link to="/order" className="progress__item ">
+        <Link to="/placeorder" className="progress__item ">
           Place Order
         </Link>
       ) : (
-        <span className="progress__item progress__item_disabled">Order</span>
+        <span className="progress__item progress__item_disabled">
+          Place Order
+        </span>
       )}
     </div>
   );

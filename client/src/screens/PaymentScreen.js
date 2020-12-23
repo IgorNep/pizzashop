@@ -11,7 +11,7 @@ const PaymentScreen = ({ history }) => {
   const { shippingAddress } = cart;
 
   const [paymentMethod, setPaymentMethod] = useState(
-    `${cart.paymentMethod ? cart.paymentMethod : 'liqpay'}`
+    `${cart.paymentMethod ? cart.paymentMethod : 'Liqpay'}`
   );
 
   if (!shippingAddress) {
@@ -34,7 +34,7 @@ const PaymentScreen = ({ history }) => {
           <div className="form-group">
             <p>
               <label
-                htmlFor="liqpay"
+                htmlFor="Liqpay"
                 style={{
                   background: '#fff',
                   color: '#000',
@@ -47,10 +47,10 @@ const PaymentScreen = ({ history }) => {
               </label>
               <input
                 type="checkbox"
-                name="liqpay"
-                id="liqpay"
+                name="Liqpay"
+                id="Liqpay"
                 value={paymentMethod}
-                checked={paymentMethod === 'liqpay'}
+                checked={paymentMethod === 'Liqpay'}
                 onChange={(e) => setPaymentMethod(e.target.name)}
                 style={{ fontSize: '2rem' }}
               />
@@ -59,7 +59,7 @@ const PaymentScreen = ({ history }) => {
           <div className="form-group">
             <p>
               <label
-                htmlFor="cash"
+                htmlFor="Cash"
                 style={{
                   background: '#fff',
                   color: '#000',
@@ -72,10 +72,10 @@ const PaymentScreen = ({ history }) => {
               </label>
               <input
                 type="checkbox"
-                name="cash"
-                id="cash"
+                name="Cash"
+                id="Cash"
                 value={paymentMethod}
-                checked={paymentMethod === 'cash'}
+                checked={paymentMethod === 'Cash'}
                 onChange={(e) => setPaymentMethod(e.target.name)}
               />
             </p>
