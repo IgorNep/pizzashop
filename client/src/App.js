@@ -1,5 +1,6 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
+import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import FoodScreen from './screens/FoodScreen';

@@ -1,0 +1,26 @@
+.progress {
+  display: flex;
+  width: 600px;
+  margin: 0 auto 1rem auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  &__item {
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 0.5rem;
+    &_disabled {
+      opacity: 0.5;
+    }
+  }
+  &__separator {
+    height: 3px;
+    width: 85px;
+    background: #fff;
+    &_disabled {
+      opacity: 0.5;
+    }
+  }
+}
