@@ -23,7 +23,7 @@ const CartScreen = ({ history, location }) => {
 
   return (
     <>
-      <ProgressSteps step1 />
+      <ProgressSteps step1 step2 />
       {loading ? (
         <Loader />
       ) : error ? (

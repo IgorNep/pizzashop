@@ -25,7 +25,7 @@ const ShippingScreen = ({ history }) => {
 
   return (
     <>
-      <ProgressSteps step1 step2 />
+      <ProgressSteps step1 step2 step3 />
       <FormContainer>
         <h2>Shipping</h2>
         <form onSubmit={submitHandler}>

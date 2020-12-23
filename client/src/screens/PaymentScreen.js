@@ -26,7 +26,7 @@ const PaymentScreen = ({ history }) => {
 
   return (
     <>
-      <ProgressSteps step1 step2 step3 />
+      <ProgressSteps step1 step2 step3 step4 />
       <FormContainer>
         <h2>Payment Method</h2>
         <form onSubmit={submitHandler}>

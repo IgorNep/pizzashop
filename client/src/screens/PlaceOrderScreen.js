@@ -16,7 +16,6 @@ const PlaceOrderScreen = ({ history }) => {
   const totalPay = shippingPay + totalItemsPay;
   return (
     <>
-      <ProgressSteps step1 step2 step3 step4 />
       <div className="place-order-screen">
         <div className="place-order-screen__items">
           <div className="place-order-screen__items_item">
@@ -35,6 +34,9 @@ const PlaceOrderScreen = ({ history }) => {
                 <tbody>
                   {cartItems.map((item) => (
                     <tr key={item._id}>
+                      <td>
+                        <img src={item.image} alt="img" />
+                      </td>
                       <td>
                         {item.name} ({item.category})
                       </td>
@@ -79,6 +81,7 @@ const PlaceOrderScreen = ({ history }) => {
               </tr>
             </tbody>
           </table>
+          <button className="btn btn-light d-block">Pay</button>
         </div>
       </div>
     </>

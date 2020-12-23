@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProgressSteps = ({ step1, step2, step3, step4 }) => {
+const ProgressSteps = ({ step1, step2, step3, step4, step5 }) => {
   return (
     <div className="progress">
       {step1 ? (
@@ -13,6 +13,16 @@ const ProgressSteps = ({ step1, step2, step3, step4 }) => {
       )}
       <div className=" progress__separator"></div>
       {step2 ? (
+        <Link to="/cart" className="progress__item ">
+          Fill the cart
+        </Link>
+      ) : (
+        <span className="progress__item progress__item_disabled">
+          Fill the cart
+        </span>
+      )}
+      <div className=" progress__separator"></div>
+      {step3 ? (
         <Link to="/shipping" className="progress__item ">
           Shipping
         </Link>
@@ -20,7 +30,7 @@ const ProgressSteps = ({ step1, step2, step3, step4 }) => {
         <span className="progress__item progress__item_disabled">Shipping</span>
       )}
       <div className="progress__separator"></div>
-      {step3 ? (
+      {step4 ? (
         <Link to="/payment" className="progress__item ">
           Payment
         </Link>
@@ -28,7 +38,7 @@ const ProgressSteps = ({ step1, step2, step3, step4 }) => {
         <span className="progress__item progress__item_disabled">Payment</span>
       )}
       <div className="progress__separator"></div>
-      {step4 ? (
+      {step5 ? (
         <Link to="/placeorder" className="progress__item ">
           Place Order
         </Link>
