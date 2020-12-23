@@ -30,7 +30,7 @@ const ProgressSteps = ({ step1, step2, step3, step4 }) => {
       <div className="progress__separator"></div>
       {step4 ? (
         <Link to="/order" className="progress__item ">
-          Order
+          Place Order
         </Link>
       ) : (
         <span className="progress__item progress__item_disabled">Order</span>

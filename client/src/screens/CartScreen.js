@@ -94,7 +94,7 @@ const CartScreen = ({ history, location }) => {
             Go Back
           </button>
           <button className="btn btn-dark" onClick={placeOrderHandler}>
-            Place Order
+            Proceed To Checkout
           </button>
         </div>
       )}
