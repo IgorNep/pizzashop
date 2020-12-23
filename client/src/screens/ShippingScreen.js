@@ -5,17 +5,21 @@ import { saveShippingAddress } from '../actions/cartActions';
 
 const ShippingScreen = ({ history }) => {
   const dispatch = useDispatch();
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [newPostNumber, setNewPostNumber] = useState('');
-  const [country, setCountry] = useState('');
 
   const cart = useSelector((state) => state.cart);
-  const { shippinAddress } = cart;
+  const { shippingAddress } = cart;
+
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [city, setCity] = useState(shippingAddress.city);
+  const [newPostNumber, setNewPostNumber] = useState(
+    shippingAddress.newPostNumber
+  );
+  const [country, setCountry] = useState(shippingAddress.country);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveShippingAddress({ address, city, newPostNumber, country }));
+    history.push('/payment');
   };
 
   return (

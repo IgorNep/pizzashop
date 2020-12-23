@@ -33,7 +33,7 @@ const cartItemsFromLocalStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : [];
 
-const shippingAddressFromLocalStorage = localStorage.getItem('shippinAddress')
+const shippingAddressFromLocalStorage = localStorage.getItem('shippingAddress')
   ? JSON.parse(localStorage.getItem('shippingAddress'))
   : {};
 
