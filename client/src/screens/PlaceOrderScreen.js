@@ -6,8 +6,14 @@ const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress, paymentMethod } = cart;
+  const { shippingAddress, paymentMethod, cartItems } = cart;
 
+  const totalItemsPay = cartItems.reduce(
+    (acc, item) => item.qty * item.price + acc,
+    0
+  );
+  const shippingPay = totalItemsPay >= 250 ? 0 : 70;
+  const totalPay = shippingPay + totalItemsPay;
   return (
     <>
       <ProgressSteps step1 step2 step3 step4 />
@@ -15,7 +21,8 @@ const PlaceOrderScreen = ({ history }) => {
         <div className="place-order-screen__items">
           <div className="place-order-screen__items_item">
             <h2>Shipping</h2>
-            {shippingAddress.address}
+            {shippingAddress.country}, {shippingAddress.city},{' '}
+            {shippingAddress.newPostNumber}, {shippingAddress.address}{' '}
           </div>
           <div className="place-order-screen__items_item">
             <h2>Payment Method</h2>
@@ -23,6 +30,25 @@ const PlaceOrderScreen = ({ history }) => {
           </div>
           <div className="place-order-screen__items_item">
             <h2>Order Items</h2>
+            <div className="place-order-screen__items_item">
+              <table className="place-order-screen__items_table">
+                <tbody>
+                  {cartItems.map((item) => (
+                    <tr key={item._id}>
+                      <td>
+                        {item.name} ({item.category})
+                      </td>
+
+                      <td>
+                        {item.qty} x {item.price} UAH ={item.qty * item.price}{' '}
+                        UAH
+                      </td>
+                      <td></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div className="place-order-screen__sidebar">
@@ -38,18 +64,18 @@ const PlaceOrderScreen = ({ history }) => {
             <tbody>
               <tr>
                 <td>Items:</td>
-                <td>1200 UAH</td>
+                <td>{totalItemsPay} UAH</td>
               </tr>
               <tr>
                 <td>Shipping:</td>
-                <td>0 UAH</td>
+                <td>{shippingPay} UAH</td>
               </tr>
               <tr>
                 <td>
                   {' '}
                   <h3>Total:</h3>{' '}
                 </td>
-                <td>1200 UAH</td>
+                <td>{totalPay} UAH</td>
               </tr>
             </tbody>
           </table>

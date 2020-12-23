@@ -4,6 +4,7 @@ import QtyItemsHandler from '../components/QtyItemsHandler';
 import Loader from '../layout/Loader';
 import { removeFullItemFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
+import ProgressSteps from '../components/ProgressSteps';
 
 const CartScreen = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const CartScreen = ({ history, location }) => {
 
   return (
     <>
+      <ProgressSteps step1 />
       {loading ? (
         <Loader />
       ) : error ? (
