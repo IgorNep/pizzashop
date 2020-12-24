@@ -13,6 +13,7 @@ import {
   userRegisterReducer,
   userUpdateProfileReducer,
 } from './reducers/userReducers';
+import { orderCreateReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -23,6 +24,7 @@ const reducer = combineReducers({
   getByCategory: getProductByCategoryReducer,
   topProductsList: topProductsListReducer,
   cart: cartReducer,
+  orderCreate: orderCreateReducer,
 });
 
 const userInfoFromLocalStorage = localStorage.getItem('userInfo')

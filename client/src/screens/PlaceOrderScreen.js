@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createOrder } from '../actions/orderActions';
+
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
@@ -15,7 +17,9 @@ const PlaceOrderScreen = ({ history }) => {
     Number(cart.shippingPrice) + Number(cart.itemsPrice)
   ).toFixed(2);
 
-  const placeOrderHandler = (e) => {};
+  const placeOrderHandler = (e) => {
+    dispatch(createOrder({}));
+  };
 
   return (
     <>
