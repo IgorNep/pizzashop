@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const productSchema = mongoose.Schema(
   {
     user: {
@@ -35,5 +36,5 @@ const productSchema = mongoose.Schema(
   { timestapms: true }
 );
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('product', productSchema);
 export default Product;

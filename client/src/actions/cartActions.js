@@ -9,7 +9,10 @@ import {
 export const addItemToCart = (product) => async (dispatch, getState) => {
   try {
     product.qty += 1;
-    dispatch({ type: ITEM_CART_ADD, payload: product });
+    dispatch({
+      type: ITEM_CART_ADD,
+      payload: { ...product, product: product._id },
+    });
     localStorage.setItem(
       'cartItems',
       JSON.stringify(getState().cart.cartItems)
