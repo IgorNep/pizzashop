@@ -4,7 +4,7 @@ const productSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'User',
       required: true,
     },
     name: {
@@ -36,5 +36,5 @@ const productSchema = mongoose.Schema(
   { timestapms: true }
 );
 
-const Product = mongoose.model('product', productSchema);
+const Product = mongoose.model('Product', productSchema);
 export default Product;
