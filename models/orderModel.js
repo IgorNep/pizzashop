@@ -41,6 +41,11 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    itemsPrice: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     totalPrice: {
       type: Number,
       required: true,
@@ -55,7 +60,7 @@ const orderSchema = mongoose.Schema(
       type: Date,
     },
     isDelivered: {
-      tpe: Boolean,
+      type: Boolean,
       required: true,
       default: false,
     },

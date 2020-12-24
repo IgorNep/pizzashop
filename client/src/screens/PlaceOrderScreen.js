@@ -15,6 +15,8 @@ const PlaceOrderScreen = ({ history }) => {
     Number(cart.shippingPrice) + Number(cart.itemsPrice)
   ).toFixed(2);
 
+  const placeOrderHandler = (e) => {};
+
   return (
     <>
       <div className="place-order-screen">
@@ -103,7 +105,10 @@ const PlaceOrderScreen = ({ history }) => {
                   <tr style={{ borderBottom: 'none' }}>
                     <td colSpan="2">
                       {' '}
-                      <button className="btn btn-light d-block">
+                      <button
+                        className="btn btn-light d-block"
+                        onClick={placeOrderHandler}
+                      >
                         Place Order
                       </button>
                     </td>
