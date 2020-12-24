@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
+import Message from '../layout/Message';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, paymentMethod, cartItems } = cart;
+
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { success, error, order } = orderCreate;
 
   cart.itemsPrice = cartItems
     .reduce((acc, item) => item.qty * item.price + acc, 0)
@@ -17,8 +21,24 @@ const PlaceOrderScreen = ({ history }) => {
     Number(cart.shippingPrice) + Number(cart.itemsPrice)
   ).toFixed(2);
 
-  const placeOrderHandler = (e) => {
-    dispatch(createOrder({}));
+  useEffect(() => {
+    if (success) {
+      history.push(`/order/${order._id}`);
+    }
+    //eslint-disable-next-line
+  }, [history, success]);
+
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress,
+        paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
   };
 
   return (
@@ -109,6 +129,7 @@ const PlaceOrderScreen = ({ history }) => {
                   <tr style={{ borderBottom: 'none' }}>
                     <td colSpan="2">
                       {' '}
+                      {error && <Message type="danger" message={error} />}
                       <button
                         className="btn btn-light d-block"
                         onClick={placeOrderHandler}
