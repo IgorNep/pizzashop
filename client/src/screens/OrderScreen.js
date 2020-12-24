@@ -34,6 +34,16 @@ const OrderScreen = ({ history, match }) => {
         <div className="place-order-screen">
           <div className="place-order-screen__items">
             <div className="place-order-screen__items_item">
+              <h3
+                style={{
+                  color: '#000',
+                  background: '#fff',
+                  marginBottom: '1rem',
+                  padding: '0.5rem',
+                }}
+              >
+                Order # {order._id}
+              </h3>
               <h2>Shipping</h2>
               {order.shippingAddress.country}, {order.shippingAddress.city},{' '}
               {order.shippingAddress.newPostNumber},{' '}
